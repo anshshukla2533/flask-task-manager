@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div class="glass-container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h4 class="mb-0">Add your todo</h4>
+      <div class="muted">Fast, clean, and colorful</div>
+    </div>
+  </div>
+
+  <form action="/" method="post" class="glass-card mb-3">
+    <div class="mb-3">
+      <label for="title" class="form-label">Todo title</label>
+      <input type="text" class="form-control" name="title" id="title">
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <input type="text" class="form-control" name="desc" id="desc">
+    </div>
+    <button type="submit" class="btn btn-primary-custom">Submit</button>
+  </form>
+
+  <h5 class="mb-3">Your todo list</h5>
+
+  {% if allTodo|length == 0 %}
+    <div class="glass-card">
+      <div class="muted">No todos found — add one above ✨</div>
+    </div>
+  {% else %}
+    <div class="glass-card">
+      <div class="table-responsive">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Time</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for todo in allTodo %}
+            <tr>
+              <th scope="row">{{ loop.index }}</th>
+              <td>{{ todo.title }}</td>
+              <td>{{ todo.desc }}</td>
+              <td>{{ todo.date_created }}</td>
+              <td>
+                <a href="/update/{{ todo.sno }}" class="btn btn-primary-custom btn-sm mx-1">Update</a>
+                <a href="/delete/{{ todo.sno }}" class="btn btn-danger-custom btn-sm mx-1"
+                   onclick="return confirm('Are you sure you want to delete this todo?');">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+{% endblock body %}

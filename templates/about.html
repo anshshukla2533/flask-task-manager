@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+ 
+  <div class="glass-card">
+     <h2 class="mb-2">About This Todo App</h2>
+    <p class="lead muted">This is a simple Todo application built using <strong>Flask</strong> and <strong>SQLite</strong> for database management. You can add, update, and delete your tasks easily.</p>
+
+    <h6 class="muted">Features:</h6>
+    <ul>
+        <li>Add your tasks with a title and description.</li>
+        <li>View all your tasks in a table format.</li>
+        <li>Update any task to keep it up-to-date.</li>
+        <li>Delete tasks that are completed or no longer needed.</li>
+        <li>Responsive design using <strong>Bootstrap 5</strong>.</li>
+    </ul>
+
+    <h6 class="muted">How to Use:</h6>
+    <ol>
+        <li>Go to the home page and add your tasks.</li>
+        <li>Click "Update" to modify any task.</li>
+        <li>Click "Delete" to remove a task.</li>
+        <li>All changes are saved automatically in the database.</li>
+    </ol>
+
+    <p class="muted">Built By Ansh using Flask, SQLAlchemy, and Bootstrap.</p>
+  </div>
+
+
+{% endblock body %}

@@ -1,0 +1,113 @@
+:root{
+  /* Light theme palette (user supplied) */
+  --bg: #F9FAFB;
+  --card-bg: #FFFFFF;
+  --primary: #2563EB; /* blue-600 */
+  --primary-hover: #1E40AF; /* blue-800 */
+  --secondary: #10B981; /* emerald-500 */
+  --text-primary: #111827; /* gray-900 */
+  --text-secondary: #6B7280; /* gray-500 */
+  --border: #E5E7EB; /* gray-200 */
+  --danger: #DC2626; /* red-600 */
+
+  /* glass specifics */
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(0,0,0,0.06);
+}
+
+/* Dark mode overrides when .dark-mode is applied to body */
+.dark-mode{
+  --bg: #111827;
+  --card-bg: #1F2937;
+  --primary: #3B82F6; /* blue-500 */
+  --secondary: #10B981;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --border: #374151; /* gray-700 */
+  --glass-bg: rgba(31,41,55,0.7);
+  --glass-border: rgba(255,255,255,0.04);
+}
+
+/* Page background */
+body{
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Glass container - subtle frosted card */
+.glass-container{
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+  background-clip: padding-box;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+
+.dark-mode .glass-container{
+  background: linear-gradient(180deg, rgba(31,41,55,0.6), rgba(31,41,55,0.45));
+  box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+}
+
+.glass-card{
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(2,6,23,0.06);
+}
+
+.dark-mode .glass-card{
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+}
+
+/* Buttons */
+.btn-primary-custom{
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid transparent;
+}
+.btn-primary-custom:hover{
+  background: var(--primary-hover);
+}
+
+.btn-success-custom{
+  background: var(--secondary);
+  color: #fff;
+}
+
+.btn-danger-custom{
+  background: var(--danger);
+  color: #fff;
+}
+
+/* Inputs */
+.form-control{
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.form-control:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.15rem rgba(37,99,235,0.12);
+}
+
+/* Table tweaks */
+.table thead th{ color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+.table tbody td{ border-top: 1px solid rgba(0,0,0,0.03); }
+
+.muted{ color: var(--text-secondary); }
+
+/* subtle hover on cards */
+.glass-card:hover{ transform: translateY(-4px); transition: transform .18s ease; }
+
+/* Utility helpers */
+.brand-badge{ background: linear-gradient(90deg, rgba(37,99,235,0.12), rgba(16,185,129,0.08)); padding: .35rem .6rem; border-radius: 10px; font-weight:700; }
+
+@media (max-width:576px){
+  .glass-container{ padding: .8rem }
+}

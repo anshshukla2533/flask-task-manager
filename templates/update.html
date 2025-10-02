@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="glass-container my-4">
+  <h4 class="mb-3">Update your todo</h4>
+  <form action="/update/{{ todo.sno }}" method="post" class="glass-card">
+    <div class="mb-3">
+      <label for="title" class="form-label">Todo title</label>
+      <input type="text" class="form-control" name="title" id="title" value="{{ todo.title }}">
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <input type="text" class="form-control" name="desc" id="desc" value="{{ todo.desc }}">
+    </div>
+    <button type="submit" class="btn btn-primary-custom">Save</button>
+    <a href="/" class="btn btn-secondary ms-2">Cancel</a>
+  </form>
+</div>
+{% endblock body %}
